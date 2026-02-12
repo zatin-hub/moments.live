@@ -1,38 +1,43 @@
-import { useEffect } from "react";
-import "@/App.css";
+import React from 'react';
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import '@fontsource/playfair-display/400.css';
+import '@fontsource/playfair-display/500.css';
+import '@fontsource/playfair-display/600.css';
+import '@fontsource/playfair-display/700.css';
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection';
+import FeaturesSection from './components/FeaturesSection';
+import AIPhotoFinder from './components/AIPhotoFinder';
+import MomentsBot from './components/MomentsBot';
+import WaveGoodbye from './components/WaveGoodbye';
+import Testimonials from './components/Testimonials';
+import PricingSection from './components/PricingSection';
+import FAQSection from './components/FAQSection';
+import ContactCTA from './components/ContactCTA';
+import Footer from './components/Footer';
+import FloatingStamp from './components/FloatingStamp';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
+const HomePage = () => {
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+    <div className="min-h-screen bg-[#f5f0e8]">
+      <Navbar />
+      <FloatingStamp />
+      <HeroSection />
+      <FeaturesSection />
+      <AIPhotoFinder />
+      <MomentsBot />
+      <WaveGoodbye />
+      <Testimonials />
+      <PricingSection />
+      <FAQSection />
+      <ContactCTA />
+      <Footer />
     </div>
   );
 };
@@ -42,9 +47,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
+          <Route path="/" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
     </div>
