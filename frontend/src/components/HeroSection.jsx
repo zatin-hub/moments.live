@@ -10,22 +10,13 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden" style={{
-      background: 'linear-gradient(180deg, #f5e6f0 0%, #fce4d6 30%, #fdf0e6 60%, #f5f0e8 100%)'
+      background: 'linear-gradient(180deg, #e8d0e0 0%, #f0d8cc 25%, #fce4d6 50%, #fdf0e6 75%, #f5f0e8 100%)'
     }}>
-      {/* Decorative floating elements */}
-      <div className="absolute top-20 left-[10%] opacity-40 pointer-events-none">
-        <img
-          src="https://framerusercontent.com/images/aQ94F4G8HO1Ys20hvX1pqjF9Yg0.png?width=200"
-          alt=""
-          className="w-16 md:w-24 animate-float"
-        />
-      </div>
-      <div className="absolute top-32 right-[10%] opacity-30 pointer-events-none">
-        <img
-          src="https://framerusercontent.com/images/aQ94F4G8HO1Ys20hvX1pqjF9Yg0.png?width=200"
-          alt=""
-          className="w-12 md:w-20 animate-float-delayed"
-        />
+      {/* Subtle decorative background shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-[5%] w-32 h-32 bg-purple-200/20 rounded-full blur-3xl" />
+        <div className="absolute top-40 right-[10%] w-40 h-40 bg-pink-200/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 left-[20%] w-48 h-48 bg-orange-200/15 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 pt-28 md:pt-36 pb-10 text-center relative z-10">
@@ -34,10 +25,10 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm rounded-full px-5 py-2 mb-8 shadow-sm"
+          className="inline-flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-5 py-2.5 mb-8 shadow-sm border border-white/40"
         >
           <span className="text-[#2D4A2D] font-bold text-lg">50+</span>
-          <span className="text-[#4a4a4a] text-sm">captured their once-in-a-lifetime celebration with us</span>
+          <span className="text-[#4a4a4a] text-sm font-medium">captured their once-in-a-lifetime celebration with us</span>
         </motion.div>
 
         {/* Main heading */}
@@ -45,7 +36,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="font-playfair text-4xl md:text-6xl lg:text-7xl text-[#1a1a1a] leading-tight mb-6 max-w-4xl mx-auto"
+          className="font-playfair text-4xl md:text-6xl lg:text-7xl text-[#1a1a1a] leading-[1.1] mb-6 max-w-4xl mx-auto"
         >
           {heroData.heading}
         </motion.h1>
@@ -78,49 +69,61 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 md:mt-16 relative flex justify-center items-end gap-4 md:gap-8"
+          className="mt-14 md:mt-20 relative flex justify-center items-end"
         >
-          {/* Left decorative lotus */}
-          <div className="hidden md:block absolute -left-4 top-1/2 -translate-y-1/2 opacity-50">
-            <div className="text-pink-300 text-6xl">❁</div>
+          {/* Decorative elements - lotus flowers */}
+          <div className="hidden lg:block absolute -left-8 bottom-1/3 z-0">
+            <img
+              src="https://framerusercontent.com/images/aQ94F4G8HO1Ys20hvX1pqjF9Yg0.png?width=120"
+              alt=""
+              className="w-16 opacity-40 animate-float"
+            />
+          </div>
+          <div className="hidden lg:block absolute -right-8 bottom-1/3 z-0">
+            <img
+              src="https://framerusercontent.com/images/aQ94F4G8HO1Ys20hvX1pqjF9Yg0.png?width=120"
+              alt=""
+              className="w-16 opacity-40 animate-float-delayed"
+            />
           </div>
 
           {/* Left phone */}
-          <div className="hidden md:block w-40 lg:w-52 transform -rotate-6 translate-y-8">
-            <img
-              src="https://framerusercontent.com/images/4gUTaXRRsQSb28cFENZRJcdetg.png?scale-down-to=512"
-              alt="Moments App QR"
-              className="w-full rounded-3xl shadow-2xl"
-            />
+          <div className="hidden md:block w-36 lg:w-44 transform -rotate-6 translate-y-12 z-10">
+            <div className="bg-black rounded-[2rem] p-1.5 shadow-2xl">
+              <img
+                src="https://framerusercontent.com/images/4gUTaXRRsQSb28cFENZRJcdetg.png?scale-down-to=512"
+                alt="Moments App QR"
+                className="w-full rounded-[1.75rem]"
+              />
+            </div>
           </div>
 
           {/* Center phone (main) */}
-          <div className="w-56 md:w-64 lg:w-72 relative">
-            <img
-              src="https://framerusercontent.com/images/R3U796O2tu9nCkGBUHnkHx4rI.png?scale-down-to=512"
-              alt="Moments App Feed"
-              className="w-full rounded-3xl shadow-2xl"
-            />
+          <div className="w-52 md:w-60 lg:w-68 relative z-20 mx-4 md:mx-6">
+            <div className="bg-black rounded-[2.5rem] p-2 shadow-2xl">
+              <img
+                src="https://framerusercontent.com/images/R3U796O2tu9nCkGBUHnkHx4rI.png?scale-down-to=512"
+                alt="Moments App Feed"
+                className="w-full rounded-[2rem]"
+              />
+            </div>
           </div>
 
           {/* Right phone */}
-          <div className="hidden md:block w-40 lg:w-52 transform rotate-6 translate-y-8">
-            <img
-              src="https://framerusercontent.com/images/9uII71v5xBbuKsydXxfhr9VKAE.png?scale-down-to=512"
-              alt="Moments App Onboarding"
-              className="w-full rounded-3xl shadow-2xl"
-            />
-          </div>
-
-          {/* Right decorative lotus */}
-          <div className="hidden md:block absolute -right-4 top-1/2 -translate-y-1/2 opacity-50">
-            <div className="text-pink-300 text-6xl">❁</div>
+          <div className="hidden md:block w-36 lg:w-44 transform rotate-6 translate-y-12 z-10">
+            <div className="bg-black rounded-[2rem] p-1.5 shadow-2xl">
+              <img
+                src="https://framerusercontent.com/images/9uII71v5xBbuKsydXxfhr9VKAE.png?scale-down-to=512"
+                alt="Moments App Onboarding"
+                className="w-full rounded-[1.75rem]"
+              />
+            </div>
           </div>
         </motion.div>
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#f5f0e8] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#f5f0e8] to-transparent" />
     </section>
   );
 };
