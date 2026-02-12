@@ -10,8 +10,8 @@ const FeatureCard = ({ title, description, image, index }) => (
     transition={{ duration: 0.6, delay: index * 0.15 }}
     className="flex flex-col items-center text-center"
   >
-    <div className="relative w-48 md:w-56 h-auto mb-5 group">
-      <div className="overflow-hidden rounded-3xl shadow-lg group-hover:shadow-xl transition-shadow duration-500">
+    <div className="relative w-52 md:w-60 lg:w-64 h-auto mb-5 group">
+      <div className="overflow-hidden rounded-3xl shadow-lg group-hover:shadow-xl transition-shadow duration-500 bg-[#ece7df]">
         <img
           src={image}
           alt={title}
@@ -21,7 +21,7 @@ const FeatureCard = ({ title, description, image, index }) => (
       </div>
     </div>
     <h4 className="font-semibold text-[#1a1a1a] text-base md:text-lg mb-2">{title}</h4>
-    <p className="text-[#6a6a6a] text-sm max-w-[220px] leading-relaxed">{description}</p>
+    <p className="text-[#6a6a6a] text-sm max-w-[240px] leading-relaxed">{description}</p>
   </motion.div>
 );
 
@@ -65,23 +65,25 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 shadow-sm"
+          className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 shadow-sm border border-[#e8e4dc]"
         >
           <div className="flex-1">
-            <h3 className="font-playfair text-2xl md:text-3xl text-[#1a1a1a] mb-3">
+            <h3 className="font-playfair text-2xl md:text-3xl lg:text-4xl text-[#1a1a1a] mb-4">
               {featuresData.noAppCard.title}
             </h3>
-            <p className="text-[#6a6a6a] text-base leading-relaxed max-w-md">
+            <p className="text-[#6a6a6a] text-base md:text-lg leading-relaxed max-w-md">
               {featuresData.noAppCard.description}
             </p>
           </div>
-          <div className="w-48 md:w-56 flex-shrink-0">
-            <img
-              src={featuresData.noAppCard.gif}
-              alt="No App Download"
-              className="w-full rounded-2xl shadow-lg"
-              loading="lazy"
-            />
+          <div className="w-44 md:w-52 flex-shrink-0">
+            <div className="bg-black rounded-[2.5rem] p-2 shadow-2xl">
+              <img
+                src={featuresData.noAppCard.gif}
+                alt="No App Download"
+                className="w-full rounded-[2rem]"
+                loading="lazy"
+              />
+            </div>
           </div>
         </motion.div>
       </div>
