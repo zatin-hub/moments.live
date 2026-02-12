@@ -35,12 +35,14 @@ const MomentsBot = () => {
             className="flex-shrink-0"
           >
             <div className="w-52 md:w-64">
-              <img
-                src={botData.phoneImage}
-                alt="Moments Bot"
-                className="w-full rounded-3xl shadow-xl"
-                loading="lazy"
-              />
+              <div className="bg-black rounded-[2.5rem] p-2 shadow-2xl">
+                <img
+                  src={botData.phoneImage}
+                  alt="Moments Bot"
+                  className="w-full rounded-[2rem]"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </motion.div>
         </div>
