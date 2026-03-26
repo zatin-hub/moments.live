@@ -25,12 +25,10 @@ const PricingCard = ({ plan, index }) => (
     )}
     <div className="mb-4">
       <h4 className="text-[#000000] font-bold text-sm tracking-tight">{plan.name}</h4>
-      <p className="text-[#68798B]/40 text-[11px] font-medium">{plan.subtitle}</p>
-    </div>
+      <p className="text-[#68798B]/40 text-[11px] font-medium">{plan.subtitle}</p>    </div>
     <div className="mb-6">
       <span className="text-[#000000] font-bold text-3xl md:text-4xl tracking-tight">₹{plan.price}</span>
-      <span className="text-[#68798B]/40 text-xs font-medium">{plan.period}</span>
-    </div>
+      <span className="text-[#68798B]/40 text-xs font-medium">{plan.period}</span>    </div>
     <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
       className={`w-full py-3 rounded-full text-[13px] font-bold transition-colors mb-6 ${
         plan.popular
@@ -59,14 +57,14 @@ const B2BPricing = () => {
           <h2 className="text-[2rem] md:text-[2.8rem] font-bold text-[#000000] leading-[1.1] mb-3 tracking-tight">
             Plans that pay for themselves.
           </h2>
-          <p className="text-[#68798B]/50 text-sm max-w-md mx-auto">Pay for storage and capabilities, not per event. Unlimited events on every tier.</p>
+          <p className="text-[#68798B] text-sm max-w-md mx-auto">Pay for storage and capabilities, not per event. Unlimited events on every tier.</p>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {pricingData.plans.map((plan, i) => (<PricingCard key={plan.name} plan={plan} index={i} />))}
         </div>
         <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="mt-6 p-5 rounded-xl bg-white/40 border border-[#D1D7C9]/15 text-center">
-          <p className="text-[#68798B]/60 text-[12px] font-medium">Free trial includes all features. No credit card required.</p>
+          <p className="text-[#68798B] text-[12px] font-medium">Free trial includes all features. No credit card required.</p>
         </motion.div>
       </div>
     </section>

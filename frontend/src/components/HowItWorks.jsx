@@ -21,7 +21,7 @@ const HowItWorks = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">
           {howItWorksData.steps.map((step, i) => {
             const Icon = iconMap[step.icon];
             return (
@@ -43,7 +43,7 @@ const HowItWorks = () => {
                 </div>
 
                 <h4 className="text-[#000000] font-bold text-[13px] mb-1.5 tracking-tight">{step.title}</h4>
-                <p className="text-[#68798B]/50 text-[11px] leading-relaxed">{step.description}</p>
+                <p className="text-[#68798B] text-[11px] leading-relaxed">{step.description}</p>
               </motion.div>
             );
           })}

@@ -51,7 +51,7 @@ const Navbar = () => {
         </button>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <button
               key={link.label}
@@ -73,7 +73,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile */}
-        <button className="md:hidden text-[#294D32]" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button className="lg:hidden text-[#294D32]" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
@@ -84,7 +84,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-xl border-t border-[#D1D7C9]/20 overflow-hidden"
+            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-[#D1D7C9]/20 overflow-hidden"
           >
             <div className="p-6 flex flex-col gap-3">
               {navLinks.map((link) => (
