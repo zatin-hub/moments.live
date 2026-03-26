@@ -1,176 +1,355 @@
-// Mock data for Moments.live clone
+// Mock data for Moments.Live B2B Website
 
 export const navLinks = [
-  { label: 'Features', href: '#features' },
-  { label: 'Hear From Others', href: '#testimonials' },
+  { label: 'Platform', href: '#platform' },
+  { label: 'Guest App', href: '/guest-app', isRoute: true },
+  { label: 'How It Works', href: '#how-it-works' },
   { label: 'Pricing', href: '#pricing' },
-  { label: 'FAQs', href: '#faqs' },
 ];
 
 export const heroData = {
-  badge: '50+ captured their once-in-a-lifetime celebration with us',
-  heading: 'Your Own Pinterest for Wedding Photos',
-  subheading: "One beautiful gallery where your photographer's stunning shots live alongside every candid moment your guests capture",
-  ctaText: 'Get Started',
+  headline: 'Cut your costs.\nGrow your revenue.',
+  subheadline: 'Media Management Built for Professional Photographers',
+  description: 'One platform to manage, deliver, and monetize your event photography — so you spend more time behind the lens and less time on admin.',
+  ctaPrimary: 'Start Free Trial',
+  ctaSecondary: 'See How It Works',
+  dashboardImage: 'https://customer-assets.emergentagent.com/job_moment-keeper-7/artifacts/p2naxnxo_studio.moments.live%20Prototype-1.png',
 };
 
-export const featuresData = {
-  sectionTag: 'Designed For Your Day',
-  heading: 'Your Personal Wedding Pinterest Starts Here',
-  cards: [
-    {
-      title: 'Personalized Onboarding',
-      description: "Your names and custom illustration welcome every guest, it's unmistakably YOUR celebration",
-      image: 'https://framerusercontent.com/images/9uII71v5xBbuKsydXxfhr9VKAE.png?scale-down-to=512',
-    },
-    {
-      title: 'Your Very Own Personalized Feed',
-      description: 'Your own Pinterest style wedding photo feed',
-      image: 'https://framerusercontent.com/images/R3U796O2tu9nCkGBUHnkHx4rI.png?scale-down-to=512',
-    },
-    {
-      title: 'Personalised QRs and Link',
-      description: '100s of candid photographers capturing every moment',
-      image: 'https://framerusercontent.com/images/h1tSvmSRqHbQMtCgolC3gtJXec.png?scale-down-to=512',
-    },
-  ],
-  noAppCard: {
-    title: 'No App Download Required',
-    description: 'Moments App Clips and Instant Apps let others join your wedding gallery instantly',
-    gif: 'https://framerusercontent.com/images/9x0p4ZxiCSze0wcp64zauZxYVtU.gif',
-  },
-};
-
-export const aiFinderData = {
-  sectionTag: 'Feature That Works Like Magic',
-  heading: 'AI-Powered Photo Finder',
-  description: 'The #1 post-wedding headache — solved. Guests find their own photos instantly. You enjoy being newlyweds.',
-  phoneImage: 'https://framerusercontent.com/images/TRuW5KyTVGVAWBgXC6MeefzvIs.png?scale-down-to=512',
-  phoneGif: 'https://framerusercontent.com/images/puPnByXfJCIwtnXHsryGdtLFkAA.gif',
-  avatars: [
-    'https://framerusercontent.com/images/C73JaQknNYyRYvGQWukXPqclJqc.png?width=146&height=147',
-    'https://framerusercontent.com/images/fzKQ5bQ0vj7zhOUIcwAUXMs7Od4.png?width=147&height=147',
-    'https://framerusercontent.com/images/Ak5k2agDTtdBba2G24v5QE1Hqi8.png?width=147&height=147',
-    'https://framerusercontent.com/images/wO1BnpgvlYgarcc8JQl3WU75XA.png?width=147&height=147',
-  ],
-};
-
-export const botData = {
-  sectionTag: 'Moments Bot',
-  heading: 'The Gentle Photo Collector',
-  description: "Our WhatsApp bot gently nudges guests to share their photos — so you don't have to chase anyone for months",
-  phoneImage: 'https://framerusercontent.com/images/3vxslAO6bbysl4xwkMAPfppOGpo.png?scale-down-to=512',
-};
-
-export const waveGoodbyeItems = [
-  'Endless WhatsApp forwards',
-  'Chasing guests for photos',
-  'Guests asking "Where are my photos?"',
-  'Memories scattered across 10 apps',
-  'Candid moments getting lost forever',
+export const trustLogos = [
+  'Trusted by photographers across India',
 ];
 
+export const problemData = {
+  sectionTag: 'The Reality',
+  headline: "You're spending more time managing media than shooting it.",
+  description: 'A photographer handling 20–40 events a year is burning hours on admin that has a real, untracked cost.',
+  painPoints: [
+    {
+      icon: 'FolderOpen',
+      title: 'Hours lost to manual media sorting after every event',
+    },
+    {
+      icon: 'MessageCircle',
+      title: 'WhatsApp and Drive links that expire, get lost, or frustrate clients',
+    },
+    {
+      icon: 'RefreshCw',
+      title: 'Repeat follow-ups eating into time you could bill for',
+    },
+    {
+      icon: 'TrendingDown',
+      title: 'No structured way to deliver a premium experience — or charge for one',
+    },
+  ],
+};
+
+export const opportunityData = {
+  sectionTag: 'The Opportunity',
+  headline: 'Couples are already spending ₹3–5L on photography. They\'d pay more — for the right experience.',
+  description: 'The Indian wedding photography market is worth ₹10,000+ Cr. Today\'s couples want photos fast, beautifully presented, and easily shareable with 300+ guests. The photographers who deliver that digital experience will command premium pricing.',
+  callout: 'The question isn\'t whether your clients want a premium delivery experience. It\'s whether you\'re currently able to offer — and charge for — one.',
+};
+
+export const dualValueData = {
+  sectionTag: 'One Platform. Two Ways to Win.',
+  headline: 'Manage more. Charge more. Deliver better.',
+  layers: [
+    {
+      tag: 'Layer 1 — Your Backend',
+      title: 'Media Management Platform',
+      subtitle: 'This saves you money.',
+      description: 'Professional media management for photographers. Upload, organise, sort, and deliver event media efficiently. Replace messy Drive folders and WhatsApp threads.',
+      features: [
+        'One dashboard for every event',
+        'AI auto-tagging & organization',
+        'Download controls & quality settings',
+        'Team access for second shooters',
+      ],
+      image: 'https://customer-assets.emergentagent.com/job_moment-keeper-7/artifacts/p2naxnxo_studio.moments.live%20Prototype-1.png',
+    },
+    {
+      tag: 'Layer 2 — Your Client Upsell',
+      title: 'Guest Experience App',
+      subtitle: 'This earns you more.',
+      description: 'A branded guest experience your clients can offer at their event. Guests scan a QR code, upload photos, and find themselves via face recognition. You charge for it.',
+      features: [
+        'QR code entry — no app download needed',
+        'AI face recognition for instant photo finding',
+        'Guests upload their own candid moments',
+        'Position as a ₹5K–₹15K premium add-on',
+      ],
+      image: 'https://framerusercontent.com/images/R3U796O2tu9nCkGBUHnkHx4rI.png?scale-down-to=512',
+      isPhone: true,
+    },
+  ],
+};
+
+export const platformFeaturesData = {
+  sectionTag: 'The Platform',
+  headline: 'Everything you need to run a tighter, more professional media operation.',
+  tagline: 'Less time on admin. More time shooting. Lower cost per event.',
+  features: [
+    {
+      title: 'Project Management',
+      description: 'One dashboard for every event — upload, organise, and manage all media across sub-events from a single interface.',
+      image: 'https://customer-assets.emergentagent.com/job_moment-keeper-7/artifacts/p2naxnxo_studio.moments.live%20Prototype-1.png',
+    },
+    {
+      title: 'Smart Uploads & Processing',
+      description: 'Bulk upload media with real-time processing. AI auto-tags and organizes the moment files are uploaded — zero manual sorting.',
+      image: 'https://customer-assets.emergentagent.com/job_moment-keeper-7/artifacts/wp4omh8t_studio.moments.live%20Prototype-2.png',
+    },
+    {
+      title: 'Storage & Archive',
+      description: 'Monitor usage, manage archives, and control storage across all your projects. Clear visibility into what\'s using space.',
+      image: 'https://customer-assets.emergentagent.com/job_moment-keeper-7/artifacts/yu40wpzb_studio.moments.live%20Prototype-3.png',
+    },
+    {
+      title: 'Team Management',
+      description: 'Bring in second shooters and studio teammates. Assign roles, control access, and collaborate seamlessly on every event.',
+      image: 'https://customer-assets.emergentagent.com/job_moment-keeper-7/artifacts/2bjonplv_studio.moments.live%20Prototype-4.png',
+    },
+    {
+      title: 'Real-Time Notifications',
+      description: 'Stay updated on uploads, team activity, deliveries, and client interactions — all in one activity feed.',
+      image: 'https://customer-assets.emergentagent.com/job_moment-keeper-7/artifacts/ucmfqami_studio.moments.live%20Prototype-5.png',
+    },
+  ],
+};
+
+export const howItWorksData = {
+  sectionTag: 'How It Works',
+  headline: 'Set up once. Run it like a pro every time.',
+  steps: [
+    {
+      number: '01',
+      title: 'Create Event',
+      description: 'Set up your event on the web platform — add sub-events, configure settings, invite team.',
+      icon: 'Plus',
+    },
+    {
+      number: '02',
+      title: 'Upload Media',
+      description: 'Photographer uploads media directly from the shoot via the web dashboard.',
+      icon: 'Upload',
+    },
+    {
+      number: '03',
+      title: 'Guests Join',
+      description: 'Guests scan QR code, access the gallery, and upload their own candid moments.',
+      icon: 'QrCode',
+    },
+    {
+      number: '04',
+      title: 'AI Organizes',
+      description: 'Auto-tagging, face recognition, and album creation runs automatically.',
+      icon: 'Sparkles',
+    },
+    {
+      number: '05',
+      title: 'Client Receives',
+      description: 'Beautiful, controlled gallery — shareable, branded, and download-managed.',
+      icon: 'Heart',
+    },
+  ],
+};
+
+export const businessCaseData = {
+  sectionTag: 'The Business Case',
+  headline: "This isn't a cost — it's a profit lever.",
+  saves: [
+    'Hours of post-event media admin',
+    'Storage and file transfer costs',
+    'Back-and-forth client communication',
+    'Risk of losing or misdelivering media',
+  ],
+  earns: [
+    'Premium pricing for professional delivery',
+    '"Digital Guest Experience" add-on at ₹5K–₹15K per event',
+    'Stronger referrals from impressed guests',
+    'Repeat clients who associate your brand with excellence',
+  ],
+  callout: '20 events a year. Even a ₹5,000 upsell per event = ₹1,00,000 in additional revenue. The platform pays for itself — many times over.',
+};
+
 export const testimonialsData = {
-  sectionTag: 'Love Letters from Our Couples',
-  heading: 'The choice of couples who believe every moment matters.',
+  sectionTag: 'Early Feedback',
+  headline: 'Already tested. Already loved.',
+  subtitle: 'Piloted across 3 real weddings — here\'s what we heard.',
+  stats: [
+    { value: '3', label: 'Weddings Tested' },
+    { value: '500+', label: 'Guests on App' },
+    { value: '2,000+', label: 'Guest Photos Uploaded' },
+    { value: '< 1hr', label: 'vs. Days Traditional' },
+  ],
   testimonials: [
     {
-      quote: "We thought we'd only have our photographer's shots, but Moments gave us hundreds of candid pictures from our friends and family. It felt like reliving the wedding through everyone's eyes.",
+      quote: "We thought we'd only have our photographer's shots, but Moments gave us hundreds of candid pictures from guests. It felt like reliving the wedding through everyone's eyes.",
       names: 'Rhea & Arjun',
       location: 'Udaipur',
       image: 'https://framerusercontent.com/images/wbFhpX5uSAGIwczrG2Ervvaj4ac.png?width=600',
     },
     {
-      quote: 'Normally, we chase relatives for months for photos. This time, by the next morning, we had everything beautifully organized. It was the easiest part of the whole wedding!',
+      quote: 'By the next morning, we had everything beautifully organized. It was the easiest part of the whole wedding!',
       names: 'Ananya (Bride\'s Sister)',
       location: 'Mumbai',
       image: 'https://framerusercontent.com/images/OXF8xG3iqQafwQSyt2UnzF9vfg.png?width=600',
     },
     {
-      quote: 'At such a big wedding, so many small moments get lost. With Moments, nothing slipped away, every smile, every dance step, every hug was waiting for us in one place.',
+      quote: 'At such a big wedding, so many small moments get lost. With Moments, nothing slipped away — every smile, every dance step, every hug was waiting for us.',
       names: 'Siddharth & Meera',
       location: 'Delhi',
       image: 'https://framerusercontent.com/images/nRoPUCnNqKTD4j7rms4YwXUzmc.png?width=600',
-    },
-    {
-      quote: "What I loved most was the personalization. The gallery felt like it was made just for us, elegant, intimate, and unforgettable. It's the modern wedding album.",
-      names: 'Kabir and Gautami',
-      location: 'Bangalore',
-      image: 'https://framerusercontent.com/images/appo516wY3mjw6IGXBZtvYajkQ.png?width=600',
     },
   ],
 };
 
 export const pricingData = {
-  sectionTag: 'Investment in Forever',
-  heading: 'Every Celebration Deserves Its Perfect Plan',
+  sectionTag: 'Pricing',
+  headline: 'A subscription that earns its keep every single event.',
+  description: 'Tiered subscription — pay for storage and capabilities, not per event. Unlimited events on every tier.',
   plans: [
     {
-      name: 'Single Day Event',
-      subtitle: 'Perfect for Engagement or Reception',
-      price: '11,000',
+      name: 'Starter',
+      subtitle: 'For solo photographers',
+      price: '2,999',
+      period: '/month',
       features: [
-        'Single event',
-        '3 years of storage',
-        'Upto 5,000 photos',
-        'Priority event support',
-        'Unlimited guest access',
-        'AI photo finder for everyone',
+        'Unlimited events',
+        '50GB storage',
+        'AI auto-tagging',
+        'Client gallery delivery',
+        'Single user access',
+        'Email support',
       ],
       popular: false,
     },
     {
-      name: 'Multiple Days',
-      subtitle: 'Perfect for Multi-Day Weddings',
-      price: '21,000',
+      name: 'Professional',
+      subtitle: 'For growing studios',
+      price: '5,999',
+      period: '/month',
       features: [
-        'Multiple events',
-        '3 years storage',
-        '25,000 photos capacity',
-        'Extended support period',
-        'Unlimited guest access',
-        'AI photo finder for everyone',
+        'Everything in Starter',
+        '200GB storage',
+        'Guest Experience App access',
+        'Team access (up to 5)',
+        'Download controls',
+        'Priority support',
       ],
       popular: true,
     },
+    {
+      name: 'Studio',
+      subtitle: 'For agencies & large teams',
+      price: '11,999',
+      period: '/month',
+      features: [
+        'Everything in Professional',
+        '1TB storage',
+        'Unlimited team members',
+        'White-label guest app (coming soon)',
+        'API access',
+        'Dedicated account manager',
+      ],
+      popular: false,
+    },
   ],
-  footerText: 'We accept only few weddings per day to ensure every couple gets the perfect experience.',
+  trialCallout: 'Try the full platform — including Guest Experience features — on your next real event. No credit card. No commitment. Just results.',
 };
 
-export const faqData = [
-  {
-    question: 'Do guests need to download an app?',
-    answer: 'No! Moments uses App Clips (iOS) and Instant Apps (Android) so guests can start sharing photos instantly without downloading anything. They just scan the QR code or tap the link.',
-  },
-  {
-    question: 'How quickly do photos appear in the gallery?',
-    answer: 'Photos appear in your gallery almost instantly after they are uploaded. Our system processes and organizes them in real-time so everyone can see and enjoy them right away.',
-  },
-  {
-    question: 'Is it private? Who can see the photos?',
-    answer: 'Absolutely private. Only people with your unique QR code or link can access your wedding gallery. You have full control over who sees your photos.',
-  },
-  {
-    question: 'What happens after 3 years?',
-    answer: 'After 3 years, you can choose to extend your storage plan or download all your photos. We will notify you well in advance so you never lose any memories.',
-  },
-  {
-    question: 'Can our photographer upload directly?',
-    answer: 'Yes! Your photographer gets a special upload link where they can bulk upload all their professional shots directly into your Moments gallery.',
-  },
-];
+export const whyNowData = {
+  sectionTag: 'Why Now',
+  headline: 'The photographers who move first will own the market.',
+  reasons: [
+    {
+      title: 'Client expectations have shifted permanently',
+      description: 'Couples and guests expect digital-first, instant, and beautiful. USB drives and Drive links signal you\'re behind.',
+    },
+    {
+      title: 'AI has made premium possible for every photographer',
+      description: 'Face recognition, auto-tagging, and instant delivery are no longer enterprise-only. You can offer them starting today.',
+    },
+    {
+      title: 'Early adopters will build a referral moat',
+      description: 'When 300 guests each leave with their photos on their phone, your name travels with every single image.',
+    },
+  ],
+};
+
+export const ctaData = {
+  headline: 'Start your free trial. Try it on your next event.',
+  description: 'Full access — media management platform + guest experience app — at no cost and no commitment.',
+  primaryCTA: 'Start Free Trial',
+  secondaryCTA: 'Want a walkthrough first? Let\'s talk.',
+  contactLink: 'https://wa.me/919876543210',
+};
 
 export const footerData = {
-  tagline: 'One place for all your wedding memories',
-  email: 'hello@moments.com',
-  links: [
-    { label: 'Features', href: '#features' },
-    { label: 'Hear From Others', href: '#testimonials' },
+  tagline: 'Media Management Built for Professional Photographers',
+  email: 'hello@moments.live',
+  platformLinks: [
+    { label: 'Platform Features', href: '#platform' },
+    { label: 'Guest App', href: '/guest-app' },
+    { label: 'How It Works', href: '#how-it-works' },
     { label: 'Pricing', href: '#pricing' },
-    { label: 'FAQs', href: '#faqs' },
+  ],
+  companyLinks: [
+    { label: 'About', href: '#' },
+    { label: 'Contact', href: '#' },
+    { label: 'Privacy Policy', href: '#' },
+    { label: 'Terms of Service', href: '#' },
   ],
   social: [
-    { label: 'Linkedin', href: 'https://linkedin.com' },
+    { label: 'LinkedIn', href: 'https://linkedin.com' },
     { label: 'Instagram', href: 'https://instagram.com' },
+    { label: 'WhatsApp', href: 'https://wa.me/919876543210' },
+  ],
+};
+
+// Guest App page data (repurposed from old site)
+export const guestAppData = {
+  heroHeadline: 'The Guest Experience That Sells Itself',
+  heroSubtext: 'A premium guest photo experience your clients will pay extra for — and their guests will love.',
+  features: [
+    {
+      title: 'Personalized Onboarding',
+      description: "Couple's names and custom illustration welcome every guest — unmistakably their celebration.",
+      image: 'https://framerusercontent.com/images/9uII71v5xBbuKsydXxfhr9VKAE.png?scale-down-to=512',
+    },
+    {
+      title: 'Pinterest-Style Photo Feed',
+      description: 'A beautiful, scrollable gallery where every guest moment lives alongside professional shots.',
+      image: 'https://framerusercontent.com/images/R3U796O2tu9nCkGBUHnkHx4rI.png?scale-down-to=512',
+    },
+    {
+      title: 'Personalised QR & Links',
+      description: 'Custom QR codes and shareable links make joining the gallery effortless for every guest.',
+      image: 'https://framerusercontent.com/images/h1tSvmSRqHbQMtCgolC3gtJXec.png?scale-down-to=512',
+    },
+  ],
+  aiFinder: {
+    title: 'AI-Powered Photo Finder',
+    description: 'Guests find their own photos instantly using face recognition. The #1 post-wedding headache — solved.',
+    phoneImage: 'https://framerusercontent.com/images/TRuW5KyTVGVAWBgXC6MeefzvIs.png?scale-down-to=512',
+    phoneGif: 'https://framerusercontent.com/images/puPnByXfJCIwtnXHsryGdtLFkAA.gif',
+  },
+  noAppRequired: {
+    title: 'No App Download Required',
+    description: 'App Clips and Instant Apps let guests join the gallery in seconds — zero friction.',
+    gif: 'https://framerusercontent.com/images/9x0p4ZxiCSze0wcp64zauZxYVtU.gif',
+  },
+  whatsappBot: {
+    title: 'The Gentle Photo Collector',
+    description: "WhatsApp bot gently nudges guests to share their photos — so your clients don't chase anyone for months.",
+    phoneImage: 'https://framerusercontent.com/images/3vxslAO6bbysl4xwkMAPfppOGpo.png?scale-down-to=512',
+  },
+  pricingNote: 'Position this as a "Digital Guest Experience" package — charge ₹5,000–₹15,000 extra per event. Moments.Live makes it possible. You make it profitable.',
+  avatars: [
+    'https://framerusercontent.com/images/C73JaQknNYyRYvGQWukXPqclJqc.png?width=146&height=147',
+    'https://framerusercontent.com/images/fzKQ5bQ0vj7zhOUIcwAUXMs7Od4.png?width=147&height=147',
+    'https://framerusercontent.com/images/Ak5k2agDTtdBba2G24v5QE1Hqi8.png?width=147&height=147',
+    'https://framerusercontent.com/images/wO1BnpgvlYgarcc8JQl3WU75XA.png?width=147&height=147',
   ],
 };
