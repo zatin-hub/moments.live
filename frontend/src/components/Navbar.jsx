@@ -4,6 +4,9 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+const LOGO_SMALL = 'https://customer-assets.emergentagent.com/job_moment-keeper-7/artifacts/c8l9vrm3_small%20moments%20logo.png';
+const LOGO_FULL = 'https://customer-assets.emergentagent.com/job_moment-keeper-7/artifacts/i9w6b5xn_Full%20moments%20logo.png';
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -35,32 +38,25 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-600 ${
-        scrolled
-          ? 'bg-[#080C14]/90 backdrop-blur-2xl border-b border-white/[0.03]'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled
+        ? 'bg-white/80 backdrop-blur-2xl border-b border-[#D1D7C9]/30 shadow-sm'
+        : 'bg-transparent'
+    }`}>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
         {/* Logo */}
-        <button onClick={() => navigate('/')} className="flex items-center">
-          <span className="font-bold text-white text-lg tracking-[0.05em]">
-            M<span className="inline-block relative">
-              <svg width="10" height="10" viewBox="0 0 14 14" className="inline-block -mt-0.5 mx-[1px]">
-                <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#3D6B4F" />
-              </svg>
-            </span>MENTS
-          </span>
+        <button onClick={() => navigate('/')} className="flex items-center gap-2">
+          <img src={LOGO_SMALL} alt="Moments" className="w-7 h-7 object-contain" />
+          <img src={LOGO_FULL} alt="Moments" className="h-5 object-contain hidden sm:block" />
         </button>
 
-        {/* Desktop links */}
+        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <button
               key={link.label}
               onClick={() => handleNavClick(link)}
-              className="text-white/30 hover:text-white text-[13px] font-semibold transition-colors duration-300 tracking-wide"
+              className="text-[#68798B] hover:text-[#000000] text-[13px] font-semibold transition-colors duration-300 tracking-wide"
             >
               {link.label}
             </button>
@@ -69,42 +65,34 @@ const Navbar = () => {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => handleNavClick({ href: '#pricing' })}
-            className="bg-[#2D4A2D] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold hover:bg-[#3D6B4F] transition-colors duration-300 flex items-center gap-2 shadow-lg shadow-[#2D4A2D]/15"
+            className="bg-[#294D32] text-white px-5 py-2.5 rounded-full text-[13px] font-bold hover:bg-[#1e3a25] transition-colors duration-300 flex items-center gap-2 shadow-md shadow-[#294D32]/15"
           >
             Start Free Trial
             <ArrowRight size={13} />
           </motion.button>
         </div>
 
-        {/* Mobile toggle */}
-        <button className="md:hidden text-white/60" onClick={() => setMobileOpen(!mobileOpen)}>
+        {/* Mobile */}
+        <button className="md:hidden text-[#294D32]" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#0a0f1c] border-t border-white/[0.03] overflow-hidden"
+            className="md:hidden bg-white/95 backdrop-blur-xl border-t border-[#D1D7C9]/20 overflow-hidden"
           >
             <div className="p-6 flex flex-col gap-3">
               {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => handleNavClick(link)}
-                  className="text-white/40 hover:text-white text-sm font-semibold py-2.5 text-left transition-colors"
-                >
+                <button key={link.label} onClick={() => handleNavClick(link)} className="text-[#68798B] hover:text-[#000000] text-sm font-semibold py-2.5 text-left transition-colors">
                   {link.label}
                 </button>
               ))}
-              <button
-                onClick={() => handleNavClick({ href: '#pricing' })}
-                className="bg-[#2D4A2D] text-white px-5 py-3 rounded-lg text-sm font-bold w-full mt-2"
-              >
+              <button onClick={() => handleNavClick({ href: '#pricing' })} className="bg-[#294D32] text-white px-5 py-3 rounded-full text-sm font-bold w-full mt-2">
                 Start Free Trial
               </button>
             </div>

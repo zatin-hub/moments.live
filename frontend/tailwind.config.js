@@ -8,6 +8,7 @@ module.exports = {
   theme: {
   	extend: {
   		fontFamily: {
+  			display: ['Space Grotesk', 'Inter', 'sans-serif'],
   			playfair: ['Playfair Display', 'serif'],
   			inter: ['Inter', 'sans-serif'],
   		},
