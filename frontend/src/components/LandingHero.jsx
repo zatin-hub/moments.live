@@ -10,7 +10,7 @@ const WordReveal = ({ text, delay = 0, className = '' }) => {
   return (
     <span className={className}>
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+        <span key={i} className="inline-block overflow-hidden mr-[0.3em] pb-[0.15em]">
           <motion.span
             className="inline-block"
             initial={{ y: '110%', rotateX: 40 }}
@@ -53,14 +53,14 @@ const LandingHero = () => {
               className="inline-flex items-center gap-2.5 bg-[#F3F7EF] border border-[#D1D7C9] rounded-full px-4 py-2 mb-10"
             >
               <div className="w-1.5 h-1.5 rounded-full bg-[#294D32] animate-pulse-glow" />
-              <span className="text-[#294D32] text-xs font-semibold tracking-wide uppercase">Media Management for Photographers</span>
+              <span className="text-[#294D32] text-xs font-semibold tracking-wide uppercase">Media Management for Professionals</span>
             </motion.div>
 
-            <h1 className="text-[3.2rem] md:text-[4.2rem] lg:text-[5.2rem] font-bold text-[#000000] leading-[0.95] mb-8 tracking-tight">
-              <WordReveal text="Cut your costs." delay={0.2} />
+            <h1 className="text-[3.2rem] md:text-[4.2rem] lg:text-[5.2rem] font-bold text-[#000000] leading-[1.05] mb-8 tracking-tight">
+              <WordReveal text="Your Creative Hub." delay={0.2} />
               <br />
               <span className="gradient-text-green">
-                <WordReveal text="Grow your revenue." delay={0.5} />
+                <WordReveal text="Manage & Deliver Seamlessly." delay={0.5} />
               </span>
             </h1>
 

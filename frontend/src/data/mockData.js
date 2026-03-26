@@ -8,8 +8,8 @@ export const navLinks = [
 ];
 
 export const heroData = {
-  headline: 'Cut your costs.\nGrow your revenue.',
-  subheadline: 'Media Management Built for Professional Photographers',
+  headline: 'Your Creative Hub.\nManage & Deliver Seamlessly.',
+  subheadline: 'Media Management Built for Professionals',
   description: 'One platform to manage, deliver, and monetize your event photography — so you spend more time behind the lens and less time on admin.',
   ctaPrimary: 'Start Free Trial',
   ctaSecondary: 'See How It Works',
