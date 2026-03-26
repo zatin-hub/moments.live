@@ -60,8 +60,8 @@ const Footer = () => {
         <div className="w-full h-px bg-white/10 my-10" />
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/20 text-xs font-medium">&copy; 2025 Moments.Live. All rights reserved.</p>
-          <p className="text-white/10 text-[10px] font-semibold tracking-[0.1em] uppercase">Manage More. Charge More. Deliver Better.</p>
+          <p className="text-white/40 text-xs font-medium">&copy; 2025 Moments.Live. All rights reserved.</p>
+          <p className="text-white/25 text-[10px] font-semibold tracking-[0.1em] uppercase">Manage More. Charge More. Deliver Better.</p>
         </div>
       </div>
     </footer>
