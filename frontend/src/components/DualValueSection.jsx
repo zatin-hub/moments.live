@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { dualValueData } from '../data/mockData';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,37 +9,37 @@ const DualValueSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="platform" className="bg-[#0a0f1c] py-24 md:py-32 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#2D4A2D]/5 rounded-full blur-[120px]" />
+    <section id="platform" className="bg-[#060a11] py-28 md:py-40 relative overflow-hidden">
+      <div className="absolute top-0 right-[-200px] w-[600px] h-[600px] bg-[#2D4A2D]/4 rounded-full blur-[150px]" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Section header */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 relative z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
         >
-          <span className="inline-flex items-center gap-2 text-[#7bc47f] text-sm font-medium uppercase tracking-widest mb-4">
+          <span className="text-[#7bc47f] text-xs font-semibold uppercase tracking-[0.2em] mb-5 block">
             {dualValueData.sectionTag}
           </span>
-          <h2 className="font-playfair text-3xl md:text-5xl text-white leading-tight mb-4">
-            {dualValueData.headline}
+          <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] font-bold text-white leading-[0.95] tracking-tight">
+            Manage more.<br className="hidden md:block" /> Charge more.<br className="hidden md:block" /> <span className="gradient-text-green">Deliver better.</span>
           </h2>
         </motion.div>
 
-        {/* Layer toggle */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-white/5 rounded-lg p-1 border border-white/5">
+        {/* Toggle */}
+        <div className="flex justify-center mb-16">
+          <div className="inline-flex bg-white/[0.03] rounded-2xl p-1.5 border border-white/[0.04]">
             {dualValueData.layers.map((layer, i) => (
               <button
                 key={i}
                 onClick={() => setActiveLayer(i)}
-                className={`px-5 py-2.5 rounded-md text-sm font-medium transition-all duration-300 ${
+                className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-400 ${
                   activeLayer === i
-                    ? 'bg-[#2D4A2D] text-white shadow-lg'
-                    : 'text-white/40 hover:text-white/60'
+                    ? 'bg-[#2D4A2D] text-white shadow-lg shadow-[#2D4A2D]/20'
+                    : 'text-white/30 hover:text-white/50'
                 }`}
               >
                 {layer.tag}
@@ -48,72 +48,76 @@ const DualValueSection = () => {
           </div>
         </div>
 
-        {/* Active layer content */}
-        <motion.div
-          key={activeLayer}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16"
-        >
-          {/* Content */}
-          <div className="flex-1 max-w-xl">
-            <div className="inline-flex items-center gap-2 bg-[#2D4A2D]/15 rounded-full px-3 py-1 mb-4">
-              <span className="text-[#7bc47f] text-xs font-medium">{dualValueData.layers[activeLayer].subtitle}</span>
+        {/* Content */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeLayer}
+            initial={{ opacity: 0, y: 30, filter: 'blur(6px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, y: -20, filter: 'blur(4px)' }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20"
+          >
+            {/* Text */}
+            <div className="flex-1 max-w-xl">
+              <div className="inline-flex items-center gap-2 bg-[#2D4A2D]/10 rounded-full px-3 py-1.5 mb-5">
+                <span className="text-[#7bc47f] text-xs font-semibold">{dualValueData.layers[activeLayer].subtitle}</span>
+              </div>
+              <h3 className="text-[2rem] md:text-[2.8rem] font-bold text-white leading-[1.05] mb-5 tracking-tight">
+                {dualValueData.layers[activeLayer].title}
+              </h3>
+              <p className="text-white/30 text-base md:text-lg leading-relaxed mb-8 font-light">
+                {dualValueData.layers[activeLayer].description}
+              </p>
+              <ul className="space-y-3.5 mb-8">
+                {dualValueData.layers[activeLayer].features.map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-[#2D4A2D]/25 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check size={11} className="text-[#7bc47f]" />
+                    </div>
+                    <span className="text-white/45 text-sm font-medium">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              {activeLayer === 1 && (
+                <motion.button
+                  whileHover={{ x: 5 }}
+                  onClick={() => navigate('/guest-app')}
+                  className="text-[#7bc47f] text-sm font-semibold flex items-center gap-2"
+                >
+                  Explore the Guest App
+                  <ArrowRight size={14} />
+                </motion.button>
+              )}
             </div>
-            <h3 className="font-playfair text-2xl md:text-4xl text-white leading-tight mb-4">
-              {dualValueData.layers[activeLayer].title}
-            </h3>
-            <p className="text-white/40 text-base md:text-lg leading-relaxed mb-8">
-              {dualValueData.layers[activeLayer].description}
-            </p>
-            <ul className="space-y-3 mb-8">
-              {dualValueData.layers[activeLayer].features.map((feature) => (
-                <li key={feature} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#2D4A2D]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check size={12} className="text-[#7bc47f]" />
-                  </div>
-                  <span className="text-white/60 text-sm">{feature}</span>
-                </li>
-              ))}
-            </ul>
-            {activeLayer === 1 && (
-              <button
-                onClick={() => navigate('/guest-app')}
-                className="text-[#7bc47f] text-sm font-medium flex items-center gap-2 hover:gap-3 transition-all"
-              >
-                Explore the Guest App
-                <ArrowRight size={14} />
-              </button>
-            )}
-          </div>
 
-          {/* Image */}
-          <div className="flex-1 w-full max-w-xl">
-            {dualValueData.layers[activeLayer].isPhone ? (
-              <div className="flex justify-center">
-                <div className="w-56 md:w-64">
-                  <div className="bg-[#1a1a1a] rounded-[2.5rem] p-2 shadow-2xl glow-green">
-                    <img
-                      src={dualValueData.layers[activeLayer].image}
-                      alt={dualValueData.layers[activeLayer].title}
-                      className="w-full rounded-[2rem]"
-                    />
-                  </div>
+            {/* Image */}
+            <div className="flex-1 w-full max-w-xl">
+              {dualValueData.layers[activeLayer].isPhone ? (
+                <div className="flex justify-center">
+                  <motion.div
+                    whileHover={{ y: -8, rotate: 1 }}
+                    transition={{ type: 'spring', stiffness: 200 }}
+                    className="w-56 md:w-64"
+                  >
+                    <div className="bg-[#111] rounded-[2.5rem] p-2 shadow-2xl glow-green">
+                      <img src={dualValueData.layers[activeLayer].image} alt="" className="w-full rounded-[2rem]" />
+                    </div>
+                  </motion.div>
                 </div>
-              </div>
-            ) : (
-              <div className="relative">
-                <div className="absolute -inset-4 bg-[#2D4A2D]/8 rounded-2xl blur-2xl" />
-                <img
-                  src={dualValueData.layers[activeLayer].image}
-                  alt={dualValueData.layers[activeLayer].title}
-                  className="dashboard-screenshot w-full relative z-10"
-                />
-              </div>
-            )}
-          </div>
-        </motion.div>
+              ) : (
+                <motion.div
+                  whileHover={{ scale: 1.02, rotateY: -1 }}
+                  transition={{ type: 'spring', stiffness: 200 }}
+                  className="relative perspective-[1200px]"
+                >
+                  <div className="absolute -inset-6 bg-[#2D4A2D]/6 rounded-3xl blur-2xl" />
+                  <img src={dualValueData.layers[activeLayer].image} alt="" className="dashboard-screenshot w-full relative z-10" />
+                </motion.div>
+              )}
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

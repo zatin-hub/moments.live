@@ -7,27 +7,26 @@ const iconMap = { Plus, Upload, QrCode, Sparkles, Heart };
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="bg-[#0a0f1c] py-24 md:py-32 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#2D4A2D]/5 rounded-full blur-[100px]" />
+    <section id="how-it-works" className="bg-[#060a11] py-28 md:py-40 relative overflow-hidden">
+      <div className="absolute top-0 left-[-200px] w-[500px] h-[500px] bg-[#2D4A2D]/3 rounded-full blur-[120px]" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Section header */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
         >
-          <span className="inline-flex items-center gap-2 text-white/30 text-sm font-medium uppercase tracking-widest mb-4">
+          <span className="text-white/20 text-xs font-semibold uppercase tracking-[0.2em] mb-5 block">
             {howItWorksData.sectionTag}
           </span>
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
-            {howItWorksData.headline}
+          <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] font-bold text-white leading-[0.95] tracking-tight">
+            Set up once.<br /><span className="text-white/30">Run it like a pro every time.</span>
           </h2>
         </motion.div>
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {howItWorksData.steps.map((step, i) => {
             const Icon = iconMap[step.icon];
             return (
@@ -36,26 +35,20 @@ const HowItWorks = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative glass rounded-xl p-6 text-center group hover:border-[#2D4A2D]/20 transition-all duration-500"
+                transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -6, borderColor: 'rgba(61,107,79,0.15)' }}
+                className="relative rounded-2xl p-6 text-center group border border-white/[0.03] bg-white/[0.01] hover:bg-white/[0.02] transition-all duration-500"
               >
-                {/* Step number */}
-                <div className="text-white/5 font-playfair text-5xl font-bold absolute top-3 right-4">
+                <div className="text-white/[0.03] font-bold text-[4rem] leading-none absolute top-2 right-4 select-none">
                   {step.number}
                 </div>
 
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-[#2D4A2D]/15 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#2D4A2D]/25 transition-colors">
-                  <Icon size={20} className="text-[#7bc47f]" />
+                <div className="w-14 h-14 rounded-2xl bg-[#2D4A2D]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#2D4A2D]/20 transition-colors duration-500">
+                  <Icon size={22} className="text-[#7bc47f]/70 group-hover:text-[#7bc47f] transition-colors" />
                 </div>
 
-                <h4 className="text-white font-semibold text-sm mb-2">{step.title}</h4>
-                <p className="text-white/35 text-xs leading-relaxed">{step.description}</p>
-
-                {/* Connector line (hidden on last) */}
-                {i < howItWorksData.steps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-2 w-4 h-px bg-white/10" />
-                )}
+                <h4 className="text-white font-bold text-sm mb-2 tracking-tight">{step.title}</h4>
+                <p className="text-white/25 text-xs leading-relaxed font-medium">{step.description}</p>
               </motion.div>
             );
           })}

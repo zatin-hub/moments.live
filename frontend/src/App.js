@@ -1,6 +1,10 @@
 import React from 'react';
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import '@fontsource/space-grotesk/400.css';
+import '@fontsource/space-grotesk/500.css';
+import '@fontsource/space-grotesk/600.css';
+import '@fontsource/space-grotesk/700.css';
 import '@fontsource/playfair-display/400.css';
 import '@fontsource/playfair-display/500.css';
 import '@fontsource/playfair-display/600.css';

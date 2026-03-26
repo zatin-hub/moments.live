@@ -5,9 +5,9 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const B2BTestimonials = () => {
   const [current, setCurrent] = useState(0);
-  const testimonials = testimonialsData.testimonials;
-  const next = useCallback(() => setCurrent((prev) => (prev + 1) % testimonials.length), [testimonials.length]);
-  const prev = () => setCurrent((p) => (p - 1 + testimonials.length) % testimonials.length);
+  const t = testimonialsData.testimonials;
+  const next = useCallback(() => setCurrent((p) => (p + 1) % t.length), [t.length]);
+  const prev = () => setCurrent((p) => (p - 1 + t.length) % t.length);
 
   useEffect(() => {
     const timer = setInterval(next, 6000);
@@ -15,87 +15,81 @@ const B2BTestimonials = () => {
   }, [next]);
 
   return (
-    <section className="bg-[#0a0f1c] py-24 md:py-32 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Header */}
+    <section className="bg-[#060a11] py-28 md:py-40 relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true }}
-          className="text-center mb-6"
+          className="text-center mb-8"
         >
-          <span className="inline-flex items-center gap-2 text-white/30 text-sm font-medium uppercase tracking-widest mb-4">
+          <span className="text-white/20 text-xs font-semibold uppercase tracking-[0.2em] mb-5 block">
             {testimonialsData.sectionTag}
           </span>
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-3">
-            {testimonialsData.headline}
+          <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-bold text-white leading-[1.0] mb-3 tracking-tight">
+            Already tested.<br /><span className="text-white/30">Already loved.</span>
           </h2>
-          <p className="text-white/35 text-base">{testimonialsData.subtitle}</p>
+          <p className="text-white/25 text-sm font-medium">{testimonialsData.subtitle}</p>
         </motion.div>
 
-        {/* Stats row */}
+        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14 max-w-3xl mx-auto"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16 max-w-3xl mx-auto"
         >
-          {testimonialsData.stats.map((stat) => (
-            <div key={stat.label} className="glass rounded-xl p-4 text-center">
-              <div className="font-playfair text-2xl md:text-3xl text-white font-bold mb-1">{stat.value}</div>
-              <div className="text-white/30 text-xs">{stat.label}</div>
+          {testimonialsData.stats.map((s) => (
+            <div key={s.label} className="rounded-2xl p-5 text-center border border-white/[0.04] bg-white/[0.01]">
+              <div className="font-bold text-3xl md:text-4xl text-white mb-1 tracking-tight">{s.value}</div>
+              <div className="text-white/20 text-[10px] font-semibold uppercase tracking-wider">{s.label}</div>
             </div>
           ))}
         </motion.div>
 
-        {/* Testimonial carousel */}
+        {/* Carousel */}
         <div className="relative max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.35 }}
-              className="glass rounded-2xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10"
+              initial={{ opacity: 0, x: 60, filter: 'blur(6px)' }}
+              animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, x: -60, filter: 'blur(4px)' }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-8 md:gap-12 border border-white/[0.04] bg-white/[0.01]"
             >
-              <div className="w-full md:w-56 h-48 md:h-56 flex-shrink-0 rounded-xl overflow-hidden">
-                <img
-                  src={testimonials[current].image}
-                  alt={testimonials[current].names}
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-full md:w-60 h-52 md:h-64 flex-shrink-0 rounded-2xl overflow-hidden">
+                <img src={t[current].image} alt={t[current].names} className="w-full h-full object-cover" />
               </div>
               <div className="flex-1">
-                <Quote size={24} className="text-[#2D4A2D]/40 mb-3" />
-                <p className="text-white/60 text-base md:text-lg leading-relaxed mb-5 font-playfair italic">
-                  &ldquo;{testimonials[current].quote}&rdquo;
+                <Quote size={22} className="text-[#2D4A2D]/30 mb-4" />
+                <p className="text-white/50 text-base md:text-lg leading-relaxed mb-6 font-light italic">
+                  &ldquo;{t[current].quote}&rdquo;
                 </p>
-                <p className="text-white font-semibold text-sm">{testimonials[current].names}</p>
-                <p className="text-white/30 text-xs">{testimonials[current].location}</p>
+                <p className="text-white font-bold text-sm tracking-tight">{t[current].names}</p>
+                <p className="text-white/20 text-xs font-medium">{t[current].location}</p>
               </div>
             </motion.div>
           </AnimatePresence>
 
-          {/* Nav */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <button onClick={prev} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-white/20 transition-colors">
-              <ChevronLeft size={16} className="text-white/50" />
-            </button>
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <motion.button whileHover={{ scale: 1.1 }} onClick={prev} className="w-10 h-10 rounded-full border border-white/[0.06] flex items-center justify-center hover:border-white/15 transition-colors">
+              <ChevronLeft size={15} className="text-white/40" />
+            </motion.button>
             <div className="flex gap-2">
-              {testimonials.map((_, i) => (
+              {t.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    i === current ? 'bg-[#2D4A2D] w-6' : 'bg-white/10 w-2 hover:bg-white/20'
+                  className={`h-1.5 rounded-full transition-all duration-400 ${
+                    i === current ? 'bg-[#2D4A2D] w-8' : 'bg-white/8 w-1.5 hover:bg-white/15'
                   }`}
                 />
               ))}
             </div>
-            <button onClick={next} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-white/20 transition-colors">
-              <ChevronRight size={16} className="text-white/50" />
-            </button>
+            <motion.button whileHover={{ scale: 1.1 }} onClick={next} className="w-10 h-10 rounded-full border border-white/[0.06] flex items-center justify-center hover:border-white/15 transition-colors">
+              <ChevronRight size={15} className="text-white/40" />
+            </motion.button>
           </div>
         </div>
       </div>

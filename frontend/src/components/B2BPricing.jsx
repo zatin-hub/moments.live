@@ -8,14 +8,17 @@ const PricingCard = ({ plan, index }) => (
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    transition={{ delay: index * 0.1 }}
-    className={`relative glass rounded-2xl p-7 md:p-8 flex flex-col ${
-      plan.popular ? 'border-[#2D4A2D]/30 ring-1 ring-[#2D4A2D]/15' : ''
-    } hover:border-white/10 transition-all duration-500`}
+    transition={{ delay: index * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+    whileHover={{ y: -8, borderColor: plan.popular ? 'rgba(61,107,79,0.3)' : 'rgba(255,255,255,0.08)' }}
+    className={`relative rounded-3xl p-7 md:p-8 flex flex-col border transition-all duration-500 ${
+      plan.popular
+        ? 'border-[#2D4A2D]/20 bg-[#2D4A2D]/[0.04]'
+        : 'border-white/[0.04] bg-white/[0.01]'
+    }`}
   >
     {plan.popular && (
-      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-        <span className="bg-[#2D4A2D] text-white text-xs font-medium px-3 py-1 rounded-full flex items-center gap-1">
+      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+        <span className="bg-[#2D4A2D] text-white text-[10px] font-bold px-4 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg shadow-[#2D4A2D]/20 uppercase tracking-wider">
           <Sparkles size={10} />
           Most Popular
         </span>
@@ -23,28 +26,32 @@ const PricingCard = ({ plan, index }) => (
     )}
 
     <div className="mb-5">
-      <h4 className="text-white font-semibold text-base mb-0.5">{plan.name}</h4>
-      <p className="text-white/30 text-xs">{plan.subtitle}</p>
+      <h4 className="text-white font-bold text-base tracking-tight mb-0.5">{plan.name}</h4>
+      <p className="text-white/20 text-xs font-medium">{plan.subtitle}</p>
     </div>
 
-    <div className="mb-6">
-      <span className="text-white font-playfair text-4xl font-bold">₹{plan.price}</span>
-      <span className="text-white/30 text-sm">{plan.period}</span>
+    <div className="mb-7">
+      <span className="text-white font-bold text-[2.8rem] tracking-tight">₹{plan.price}</span>
+      <span className="text-white/20 text-sm font-medium">{plan.period}</span>
     </div>
 
-    <button className={`w-full py-3 rounded-lg text-sm font-medium transition-colors duration-300 mb-6 ${
-      plan.popular
-        ? 'bg-[#2D4A2D] text-white hover:bg-[#3D6B4F]'
-        : 'border border-white/10 text-white/70 hover:border-white/20 hover:text-white'
-    }`}>
+    <motion.button
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className={`w-full py-3.5 rounded-xl text-sm font-bold transition-colors duration-300 mb-7 ${
+        plan.popular
+          ? 'bg-[#2D4A2D] text-white hover:bg-[#3D6B4F] shadow-lg shadow-[#2D4A2D]/15'
+          : 'border border-white/8 text-white/50 hover:border-white/15 hover:text-white/80'
+      }`}
+    >
       Start Free Trial
-    </button>
+    </motion.button>
 
     <ul className="space-y-3 flex-1">
-      {plan.features.map((feature) => (
-        <li key={feature} className="flex items-start gap-2.5">
-          <Check size={14} className="text-[#7bc47f] mt-0.5 flex-shrink-0" />
-          <span className="text-white/45 text-sm">{feature}</span>
+      {plan.features.map((f) => (
+        <li key={f} className="flex items-start gap-2.5">
+          <Check size={13} className="text-[#7bc47f]/70 mt-0.5 flex-shrink-0" />
+          <span className="text-white/35 text-sm font-medium">{f}</span>
         </li>
       ))}
     </ul>
@@ -53,41 +60,38 @@ const PricingCard = ({ plan, index }) => (
 
 const B2BPricing = () => {
   return (
-    <section id="pricing" className="bg-[#0B1120] py-24 md:py-32 relative overflow-hidden">
-      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#2D4A2D]/5 rounded-full blur-[120px]" />
+    <section id="pricing" className="bg-[#060a11] py-28 md:py-40 relative overflow-hidden">
+      <div className="absolute bottom-[-200px] left-1/3 w-[500px] h-[500px] bg-[#2D4A2D]/4 rounded-full blur-[140px]" />
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
-        {/* Header */}
+      <div className="max-w-5xl mx-auto px-6 md:px-10 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 text-white/30 text-sm font-medium uppercase tracking-widest mb-4">
+          <span className="text-white/20 text-xs font-semibold uppercase tracking-[0.2em] mb-5 block">
             {pricingData.sectionTag}
           </span>
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">
+          <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-bold text-white leading-[1.0] mb-4 tracking-tight">
             {pricingData.headline}
           </h2>
-          <p className="text-white/35 text-base max-w-xl mx-auto">{pricingData.description}</p>
+          <p className="text-white/25 text-base max-w-xl mx-auto font-light">{pricingData.description}</p>
         </motion.div>
 
-        {/* Pricing cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {pricingData.plans.map((plan, i) => (
             <PricingCard key={plan.name} plan={plan} index={i} />
           ))}
         </div>
 
-        {/* Trial callout */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-10 p-6 rounded-xl bg-[#2D4A2D]/8 border border-[#2D4A2D]/15 text-center"
+          className="mt-8 p-6 rounded-2xl bg-[#2D4A2D]/[0.04] border border-[#2D4A2D]/10 text-center"
         >
-          <p className="text-white/50 text-sm">
+          <p className="text-white/35 text-sm font-medium">
             {pricingData.trialCallout}
           </p>
         </motion.div>

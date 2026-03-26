@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import LandingHero from '../components/LandingHero';
 import ProblemSection from '../components/ProblemSection';
@@ -12,8 +12,12 @@ import WhyNowAndCTA from '../components/WhyNowAndCTA';
 import Footer from '../components/Footer';
 
 const LandingPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#0B1120]">
+    <div className="min-h-screen bg-[#080C14] noise-overlay">
       <Navbar />
       <LandingHero />
       <ProblemSection />
